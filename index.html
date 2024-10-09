@@ -24,12 +24,16 @@
         <div id="chat" style="display:none;">
             <h2>Чат</h2>
             <div id="messageList"></div>
-            <textarea id="messageText" placeholder="Ваше сообщение..."></textarea>
-            <button id="sendMessage">Отправить</button>
+            <div class="input-container">
+                <textarea id="messageText" placeholder="Ваше сообщение..."></textarea>
+                <input type="file" id="imageInput" accept="image/*">
+                <button id="sendMessage">Отправить</button>
+            </div>
         </div>
         <div id="posts" style="display:none;">
             <h2>Посты</h2>
             <textarea id="postText" placeholder="Что нового?"></textarea>
+            <input type="file" id="postImageInput" accept="image/*">
             <button id="publishPost">Опубликовать</button>
             <div id="postList"></div>
         </div>
