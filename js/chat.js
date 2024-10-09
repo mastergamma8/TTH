@@ -27,3 +27,10 @@ document.getElementById('sendMessage').onclick = function() {
     imageInput.value = ''; // Очистить файл
     messageList.scrollTop = messageList.scrollHeight; // Авто-прокрутка вниз
 };
+
+// Добавление эмодзи
+document.getElementById('emojiButton').onclick = function() {
+    const emoji = '😊'; // Можешь добавить больше эмодзи
+    const messageText = document.getElementById('messageText');
+    messageText.value += emoji; // Добавить эмодзи в поле ввода
+};
