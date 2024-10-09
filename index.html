@@ -17,12 +17,9 @@
         </div>
         <div id="profile" style="display:none;">
             <h2>Профиль</h2>
-            <div class="profile-container">
-                <img id="avatarImage" class="avatar" src="images/default-avatar.png" alt="Аватарка">
-                <input type="file" id="avatar" accept="image/*">
-                <input type="text" id="nickname" placeholder="Никнейм">
-                <button id="updateProfile">Обновить профиль</button>
-            </div>
+            <input type="text" id="nickname" placeholder="Никнейм">
+            <input type="file" id="avatar" accept="image/*">
+            <button id="updateProfile">Обновить профиль</button>
         </div>
         <div id="chat" style="display:none;">
             <h2>Чат</h2>
@@ -30,7 +27,7 @@
             <div class="input-container">
                 <textarea id="messageText" placeholder="Ваше сообщение..."></textarea>
                 <input type="file" id="imageInput" accept="image/*">
-                <button id="sendMessage">Отправить</button>
+                <button id="sendMessage" class="send-button">Отправить</button>
             </div>
         </div>
         <div id="posts" style="display:none;">
@@ -40,10 +37,23 @@
             <button id="publishPost">Опубликовать</button>
             <div id="postList"></div>
         </div>
+        <div id="channels" style="display:none;">
+            <h2>Каналы</h2>
+            <button id="newChannel">Создать канал</button>
+            <div id="channelList"></div>
+        </div>
+        <div id="settings" style="display:none;">
+            <h2>Настройки</h2>
+            <label>
+                <input type="checkbox" id="darkModeToggle"> Темная тема
+            </label>
+        </div>
     </div>
     <script src="js/auth.js"></script>
     <script src="js/profile.js"></script>
     <script src="js/chat.js"></script>
     <script src="js/posts.js"></script>
+    <script src="js/channels.js"></script>
+    <script src="js/settings.js"></script>
 </body>
 </html>
