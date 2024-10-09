@@ -17,9 +17,12 @@
         </div>
         <div id="profile" style="display:none;">
             <h2>Профиль</h2>
-            <input type="text" id="nickname" placeholder="Никнейм">
-            <input type="file" id="avatar" accept="image/*">
-            <button id="updateProfile">Обновить профиль</button>
+            <div class="profile-container">
+                <img id="avatarImage" class="avatar" src="images/default-avatar.png" alt="Аватарка">
+                <input type="file" id="avatar" accept="image/*">
+                <input type="text" id="nickname" placeholder="Никнейм">
+                <button id="updateProfile">Обновить профиль</button>
+            </div>
         </div>
         <div id="chat" style="display:none;">
             <h2>Чат</h2>
