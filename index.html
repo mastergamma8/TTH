@@ -7,40 +7,27 @@
     <title>TTH Messenger</title>
 </head>
 <body>
-    <div id="app">
+    <header>
         <h1>TTH Messenger</h1>
-        <div id="auth">
-            <input type="text" id="username" placeholder="Имя пользователя">
-            <input type="password" id="password" placeholder="Пароль">
-            <button id="register">Зарегистрироваться</button>
-            <button id="login">Войти</button>
-        </div>
-        <div id="profile" style="display:none;">
-            <h2>Профиль</h2>
-            <input type="text" id="nickname" placeholder="Никнейм">
-            <input type="file" id="avatar" accept="image/*">
-            <button id="updateProfile">Обновить профиль</button>
-        </div>
-        <div id="chat" style="display:none;">
-            <h2>Чат</h2>
-            <div id="messageList"></div>
-            <div class="input-container">
-                <textarea id="messageText" placeholder="Ваше сообщение..."></textarea>
-                <input type="file" id="imageInput" accept="image/*">
-                <button id="sendMessage">Отправить</button>
-            </div>
-        </div>
-        <div id="posts" style="display:none;">
-            <h2>Посты</h2>
-            <textarea id="postText" placeholder="Что нового?"></textarea>
-            <input type="file" id="postImageInput" accept="image/*">
-            <button id="publishPost">Опубликовать</button>
-            <div id="postList"></div>
-        </div>
+        <button id="profileButton">Профиль</button>
+    </header>
+    
+    <div id="chat">
+        <div id="messages"></div>
+        <input type="text" id="messageInput" placeholder="Введите сообщение">
+        <input type="file" id="imageInput" accept="image/*">
+        <button id="sendButton">Отправить</button>
     </div>
-    <script src="js/auth.js"></script>
-    <script src="js/profile.js"></script>
-    <script src="js/chat.js"></script>
+
+    <div id="profile" style="display:none;">
+        <h2>Профиль</h2>
+        <img id="profileImage" src="images/default-avatar.png" alt="Avatar">
+        <input type="text" id="nickname" placeholder="Никнейм">
+        <input type="file" id="avatar" accept="image/*">
+        <button id="updateProfile">Обновить профиль</button>
+    </div>
+
     <script src="js/posts.js"></script>
+    <script src="js/profile.js"></script>
 </body>
 </html>
