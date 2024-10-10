@@ -8,47 +8,39 @@
 </head>
 <body>
     <div id="app">
+        <h1>TTH Messenger</h1>
         <div id="auth">
-            <h1>TTH Messenger</h1>
             <input type="text" id="username" placeholder="Имя пользователя">
             <input type="password" id="password" placeholder="Пароль">
             <button id="register">Зарегистрироваться</button>
             <button id="login">Войти</button>
         </div>
-        
         <div id="profile" style="display:none;">
-            <div class="header">
-                <div id="avatarPreview" class="avatar-circle"></div>
+            <div class="profile-header">
+                <div class="avatar-circle" id="avatarPreview"></div>
+                <div id="profile-info">
+                    <h2 id="nicknameDisplay"></h2>
+                    <button id="editProfile">Редактировать профиль</button>
+                </div>
+            </div>
+            <div id="profileEdit" style="display:none;">
+                <input type="text" id="nickname" placeholder="Никнейм">
                 <input type="file" id="avatar" accept="image/*">
-                <h2 id="nickname">Профиль</h2>
                 <button id="updateProfile">Обновить профиль</button>
             </div>
         </div>
-        
-        <div id="chat" style="display:none;">
-            <div class="header">
-                <h2>Чат</h2>
-            </div>
-            <div id="messageList"></div>
-            <div class="input-container">
-                <textarea id="messageText" placeholder="Сообщение..."></textarea>
-                <button id="sendMessage" class="send-button">Отправить</button>
-            </div>
+        <div id="posts" style="display:none;">
+            <h2>Посты</h2>
+            <textarea id="postText" placeholder="Что нового?"></textarea>
+            <input type="file" id="postImageInput" accept="image/*">
+            <button id="publishPost">Опубликовать</button>
+            <div id="postList"></div>
         </div>
-        
         <div id="channels" style="display:none;">
             <h2>Каналы</h2>
             <button id="newChannel">Создать канал</button>
             <div id="channelList"></div>
         </div>
-        
-        <div id="posts" style="display:none;">
-            <h2>Посты</h2>
-            <textarea id="postText" placeholder="Что нового?"></textarea>
-            <button id="publishPost">Опубликовать</button>
-            <div id="postList"></div>
-        </div>
-        
         <div id="settings" style="display:none;">
             <h2>Настройки</h2>
             <label>
@@ -56,7 +48,6 @@
             </label>
         </div>
     </div>
-    
     <script src="js/auth.js"></script>
     <script src="js/profile.js"></script>
     <script src="js/chat.js"></script>
