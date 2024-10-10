@@ -123,12 +123,19 @@ header {
 #post-input {
   width: 80%;
   padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 #send-message,
 #publish-post,
 #add-channel {
   padding: 10px;
+  background-color: #0078D7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 /* Добавлены стили для отображения альбомов изображений */
@@ -186,6 +193,12 @@ aside.active {
 
 .dark-theme #chat-box {
   background-color: #444;
+}
+
+.dark-theme #send-message,
+.dark-theme #publish-post,
+.dark-theme #add-channel {
+  background-color: #0056b3;
 }
 
 /* Медиа запросы для мобильных устройств */
