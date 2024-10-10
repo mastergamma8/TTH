@@ -30,7 +30,8 @@ header {
   cursor: pointer;
 }
 
-#back-profile, #back-settings {
+#back-profile,
+#back-settings {
   margin-bottom: 10px;
   padding: 10px;
   cursor: pointer;
@@ -44,7 +45,10 @@ header {
   cursor: pointer;
 }
 
-#channels-section, #chat-container, #post-container, #voice-message-container {
+#channels-section,
+#chat-container,
+#post-container,
+#voice-message-container {
   width: 100%;
   max-width: 500px;
   margin-top: 20px;
@@ -81,12 +85,15 @@ header {
   background-color: white;
 }
 
-#chat-input, #post-input {
+#chat-input,
+#post-input {
   width: 80%;
   padding: 10px;
 }
 
-#send-message, #publish-post, #add-channel {
+#send-message,
+#publish-post,
+#add-channel {
   padding: 10px;
 }
 
@@ -149,11 +156,14 @@ aside.active {
 
 /* Медиа запросы для мобильных устройств */
 @media (max-width: 600px) {
-  #chat-input, #post-input {
+  #chat-input,
+  #post-input {
     width: 100%;
   }
 
-  #send-message, #publish-post, #add-channel {
+  #send-message,
+  #publish-post,
+  #add-channel {
     width: 100%;
     margin-top: 5px;
   }
