@@ -1,13 +1,24 @@
-document.getElementById('updateProfile').onclick = function() {
-    const nickname = document.getElementById('nickname').value;
-    document.getElementById('nicknameDisplay').textContent = nickname;
-};
+document.addEventListener('DOMContentLoaded', () => {
+  const profilePic = document.getElementById('profile-pic');
+  const profileMenu = document.getElementById('profile-menu');
+  const saveProfileButton = document.getElementById('save-profile');
+  const avatarUpload = document.getElementById('avatar-upload');
 
-document.getElementById('avatar').onchange = function() {
-    const file = this.files[0];
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        document.getElementById('avatarPreview').innerHTML = `<img src="${e.target.result}" alt="Avatar">`;
+  profilePic.addEventListener('click', () => {
+    profileMenu.classList.toggle('active');
+  });
+
+  saveProfileButton.addEventListener('click', () => {
+    const newName = document.getElementById('edit-name').value;
+    const newNickname = document.getElementById('edit-nickname').value;
+
+    if (newName) {
+      profilePic.src = avatarUpload.files.length > 0 ? URL.createObjectURL(avatarUpload.files[0]) : 'images/default-avatar.png';
+      alert(`Profile saved. Name: ${newName}, Nickname: ${newNickname}`);
+    } else {
+      alert('Please enter a name.');
     }
-    reader.readAsDataURL(file);
-};
+
+    profileMenu.classList.remove('active');
+  });
+});
