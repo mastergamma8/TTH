@@ -1,13 +1,30 @@
-document.getElementById('loginButton').onclick = function() {
+document.getElementById('register').onclick = function() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
+    if (!username || !password) {
+        alert('Заполните все поля.');
+        return;
+    }
+    localStorage.setItem(username, password);
+    alert('Вы успешно зарегистрировались!');
+};
 
-    // Простая проверка на имя пользователя и пароль
-    if (username === 'admin' && password === '123456') {
-        // Показываем приложение и скрываем экран аутентификации
-        document.getElementById('authScreen').style.display = 'none';
-        document.getElementById('app').style.display = 'flex';
+document.getElementById('login').onclick = function() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    if (!username || !password) {
+        alert('Введите имя пользователя и пароль.');
+        return;
+    }
+    if (localStorage.getItem(username) === password) {
+        alert('Добро пожаловать, ' + username + '!');
+        document.getElementById('auth').style.display = 'none';
+        document.getElementById('profile').style.display = 'block';
+        document.getElementById('chat').style.display = 'block';
+        document.getElementById('posts').style.display = 'block';
+        document.getElementById('channels').style.display = 'block';
+        document.getElementById('settings').style.display = 'block';
     } else {
-        alert('Неправильное имя пользователя или пароль');
+        alert('Неверные имя пользователя или пароль.');
     }
 };
