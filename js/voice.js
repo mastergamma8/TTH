@@ -20,7 +20,9 @@ export async function startRecording(stream) {
 }
 
 export function stopRecording() {
-    mediaRecorder.stop();
+    if (mediaRecorder) {
+        mediaRecorder.stop();
+    }
 }
 
 function displayVoiceMessage(audioUrl) {
