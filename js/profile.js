@@ -1,9 +1,10 @@
 document.getElementById('avatar').onchange = function() {
-    const avatarImage = document.getElementById('avatarImage');
     const file = this.files[0];
-    if (file) {
-        avatarImage.src = URL.createObjectURL(file);
-    }
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        document.getElementById('avatarPreview').innerHTML = `<img src="${e.target.result}" alt="Avatar">`;
+    };
+    reader.readAsDataURL(file);
 };
 
 document.getElementById('updateProfile').onclick = function() {
