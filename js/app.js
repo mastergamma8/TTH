@@ -1,14 +1,9 @@
-// Общая логика для авторизации и переключения между разделами
+// Main app functionality that connects all parts.
+document.addEventListener('DOMContentLoaded', () => {
+  const settingsIcon = document.getElementById('settings-icon');
+  const settingsMenu = document.getElementById('settings-menu');
 
-document.getElementById('login').onclick = function() {
-    document.getElementById('auth').style.display = 'none';
-    document.getElementById('profile').style.display = 'block';
-    document.getElementById('chat').style.display = 'block';
-    document.getElementById('posts').style.display = 'block';
-    document.getElementById('channels').style.display = 'block';
-    document.getElementById('settings').style.display = 'block';
-};
-
-document.getElementById('register').onclick = function() {
-    alert('Регистрация в разработке');
-};
+  settingsIcon.addEventListener('click', () => {
+    settingsMenu.classList.toggle('active');
+  });
+});
