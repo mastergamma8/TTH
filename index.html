@@ -20,7 +20,7 @@
       <div id="post-container">
         <textarea id="post-input" placeholder="Write your post here..."></textarea>
         <input type="file" id="post-file-input" multiple /> <!-- Поле для выбора файлов -->
-        <button id="publish-post">Publish</button>
+        <button id="publish-post">Опубликовать</button>
       </div>
       <div id="posts-container"></div> <!-- Секция, где будут отображаться посты -->
     </section>
@@ -34,29 +34,29 @@
       <div id="chat-box"></div>
 
       <div id="message-input-container">
-        <input type="text" id="chat-input" placeholder="Type a message...">
+        <input type="text" id="chat-input" placeholder="Введите сообщение...">
         <input type="file" id="file-input" multiple accept="image/*,audio/*,video/*,.pdf,.doc,.docx,.txt">
-        <button id="send-message">Send</button>
+        <button id="send-message">Отправить</button>
       </div>
       <button id="back-to-posts">Назад</button>
     </div>
 
     <div id="channels-container" style="display: none;">
-      <h2>Channels</h2>
+      <h2>Каналы</h2>
       <ul id="channels-list"></ul>
-      <input type="text" id="new-channel-name" placeholder="Channel Name">
+      <input type="text" id="new-channel-name" placeholder="Имя канала">
       <input type="file" id="new-channel-avatar" accept="image/*">
-      <button id="add-channel">Add Channel</button>
+      <button id="add-channel">Добавить канал</button>
       <button id="back-to-posts-channels">Назад</button>
     </div>
 
     <div id="voice-container">
-      <button id="record-button">Record</button>
-      <button id="stop-button">Stop</button>
+      <button id="record-button">Записать</button>
+      <button id="stop-button">Стоп</button>
     </div>
 
     <div id="voice-message-container">
-      <button id="record-voice">🎤 Record Voice Message</button>
+      <button id="record-voice">🎤 Записать голосовое сообщение</button>
       <div id="voice-messages-list"></div>
     </div>
   </main>
@@ -64,20 +64,20 @@
   <!-- В профиль -->
   <aside id="profile-menu">
     <button id="back-profile">Назад</button>
-    <h2>Edit Profile</h2>
-    <input type="text" id="edit-name" placeholder="Your name">
-    <input type="text" id="edit-nickname" placeholder="Your nickname (@nickname)">
+    <h2>Редактировать профиль</h2>
+    <input type="text" id="edit-name" placeholder="Ваше имя">
+    <input type="text" id="edit-nickname" placeholder="Ваш никнейм (@nickname)">
     <input type="file" id="avatar-upload" accept="image/*">
-    <button id="save-profile">Save</button>
+    <button id="save-profile">Сохранить</button>
   </aside>
 
   <!-- В настройки -->
   <aside id="settings-menu">
     <button id="back-settings">Назад</button>
-    <h2>Settings</h2>
-    <button id="toggle-theme">Toggle Theme</button>
-    <button id="clear-chat">Clear Chat</button>
-    <button id="logout">Log out</button>
+    <h2>Настройки</h2>
+    <button id="toggle-theme">Сменить тему</button>
+    <button id="clear-chat">Очистить чат</button>
+    <button id="logout">Выйти</button>
   </aside>
 
   <script src="js/auth.js"></script>
