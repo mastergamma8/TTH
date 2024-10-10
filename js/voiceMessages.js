@@ -1,17 +1,17 @@
 import { startRecording, stopRecording } from './voice.js';
 
-const recordVoiceButton = document.getElementById('record-voice');
+const toggleRecordVoiceButton = document.getElementById('toggle-record-voice');
 let recording = false;
 
-recordVoiceButton.addEventListener('click', async () => {
+toggleRecordVoiceButton.addEventListener('click', async () => {
     if (!recording) {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        startRecording(stream);
+        await startRecording(stream);
         recording = true;
-        recordVoiceButton.innerText = 'Stop Recording';
+        toggleRecordVoiceButton.innerText = '⏹ Stop Recording';
     } else {
         stopRecording();
         recording = false;
-        recordVoiceButton.innerText = '🎤 Record Voice Message';
+        toggleRecordVoiceButton.innerText = '🎤 Start Recording';
     }
 });
