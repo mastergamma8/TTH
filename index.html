@@ -35,9 +35,12 @@
 </div>
 
     <div id="post-container">
-      <textarea id="post-input" placeholder="What's on your mind?"></textarea>
-      <button id="publish-post">Publish</button>
-    </div>
+  <textarea id="post-input" placeholder="Write your post here..."></textarea>
+  <input type="file" id="post-file-input" multiple /> <!-- Поле для выбора файлов -->
+  <button id="publish-post">Publish</button>
+</div>
+
+<div id="posts-section"></div> <!-- Секция, где будут отображаться посты -->
 
     <div id="voice-container">
       <button id="record-button">Record</button>
