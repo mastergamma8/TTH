@@ -108,3 +108,20 @@ aside.active {
 .dark-theme #chat-box {
   background-color: #444;
 }
+
+#voice-message-container {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#voice-messages-list {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.voice-message {
+  margin: 5px 0;
+}
