@@ -25,10 +25,14 @@
     </section>
 
     <div id="chat-container">
-      <div id="chat-box"></div>
-      <input type="text" id="chat-input" placeholder="Type a message...">
-      <button id="send-message">Send</button>
-    </div>
+  <div id="chat-box"></div>
+
+  <div id="message-input-container">
+    <input type="text" id="chat-input" placeholder="Type a message...">
+    <input type="file" id="file-input" multiple accept="image/*,audio/*,video/*,.pdf,.doc,.docx,.txt">
+    <button id="send-message">Send</button>
+  </div>
+</div>
 
     <div id="post-container">
       <textarea id="post-input" placeholder="What's on your mind?"></textarea>
