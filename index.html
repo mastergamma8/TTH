@@ -16,17 +16,22 @@
             <button id="login">Войти</button>
         </div>
         <div id="profile" style="display:none;">
-            <div class="profile-header">
-                <div class="avatar-circle" id="avatarPreview"></div>
-                <div id="profile-info">
-                    <h2 id="nicknameDisplay"></h2>
-                    <button id="editProfile">Редактировать профиль</button>
-                </div>
+            <h2>Профиль</h2>
+            <input type="text" id="nickname" placeholder="Никнейм">
+            <input type="file" id="avatar" accept="image/*">
+            <button id="updateProfile">Обновить профиль</button>
+            <div id="avatarPreview" class="avatar-circle"></div>
+        </div>
+        <div id="chat" style="display:none;">
+            <h2>Чат</h2>
+            <div id="messageList"></div>
+            <div class="input-container">
+                <textarea id="messageText" placeholder="Ваше сообщение..."></textarea>
+                <input type="file" id="imageInput" accept="image/*">
+                <button id="sendMessage" class="send-button">Отправить</button>
             </div>
-            <div id="profileEdit" style="display:none;">
-                <input type="text" id="nickname" placeholder="Никнейм">
-                <input type="file" id="avatar" accept="image/*">
-                <button id="updateProfile">Обновить профиль</button>
+            <div class="emoji-container">
+                <button id="emojiButton">😊</button>
             </div>
         </div>
         <div id="posts" style="display:none;">
