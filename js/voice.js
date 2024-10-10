@@ -1,39 +1,37 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const recordButton = document.getElementById('record-voice');
-  const voiceMessagesList = document.getElementById('voice-messages-list');
-  let mediaRecorder;
-  let audioChunks = [];
+// voice.js
 
-  // Запуск записи
-  recordButton.addEventListener('click', async () => {
-    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-    mediaRecorder = new MediaRecorder(stream);
-    mediaRecorder.start();
+let mediaRecorder;
+let audioChunks = [];
 
+// Начало записи
+function startRecording(stream) {
     audioChunks = [];
-
-    mediaRecorder.ondataavailable = event => {
-      audioChunks.push(event.data);
+    mediaRecorder = new MediaRecorder(stream);
+    
+    mediaRecorder.ondataavailable = (event) => {
+        audioChunks.push(event.data);
     };
 
     mediaRecorder.onstop = () => {
-      const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
-      const audioUrl = URL.createObjectURL(audioBlob);
-
-      const audioElement = document.createElement('audio');
-      audioElement.src = audioUrl;
-      audioElement.controls = true;
-      const messageElement = document.createElement('div');
-      messageElement.classList.add('voice-message');
-      messageElement.appendChild(audioElement);
-      voiceMessagesList.appendChild(messageElement);
+        const audioBlob = new Blob(audioChunks);
+        const audioUrl = URL.createObjectURL(audioBlob);
+        playAudio(audioUrl);
+        // Здесь можно добавить функционал для отправки аудио
     };
 
-    recordButton.textContent = '🔴 Recording... Click to Stop';
-    recordButton.onclick = () => {
-      mediaRecorder.stop();
-      recordButton.textContent = '🎤 Record Voice Message';
-      recordButton.onclick = () => recordButton.click();
-    };
-  });
-});
+    mediaRecorder.start();
+}
+
+// Остановка записи
+function stopRecording() {
+    mediaRecorder.stop();
+}
+
+// Воспроизведение аудио
+function playAudio(url) {
+    const audio = new Audio(url);
+    audio.play();
+}
+
+// Экспорт функций
+export { startRecording, stopRecording };
