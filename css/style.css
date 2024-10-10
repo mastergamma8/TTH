@@ -90,6 +90,39 @@ header {
   padding: 10px;
 }
 
+/* Добавлены стили для отображения альбомов изображений */
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.image-gallery img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.file-link {
+  margin-top: 10px;
+  text-decoration: none;
+  color: blue;
+  word-break: break-all;
+}
+
+/* Голосовые сообщения */
+#voice-messages-list {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.voice-message {
+  margin: 5px 0;
+}
+
 aside {
   position: fixed;
   top: 0;
@@ -114,17 +147,7 @@ aside.active {
   background-color: #444;
 }
 
-#voice-messages-list {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-}
-
-.voice-message {
-  margin: 5px 0;
-}
-
-/* Media Queries */
+/* Медиа запросы для мобильных устройств */
 @media (max-width: 600px) {
   #chat-input, #post-input {
     width: 100%;
@@ -133,5 +156,10 @@ aside.active {
   #send-message, #publish-post, #add-channel {
     width: 100%;
     margin-top: 5px;
+  }
+
+  .image-gallery img {
+    width: 80px;
+    height: 80px;
   }
 }
