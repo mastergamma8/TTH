@@ -45,6 +45,28 @@ header {
   text-align: center;
 }
 
+/* styles.css */
+.channel-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.channel-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.channel-post {
+  margin-left: 40px;
+  margin-top: 5px;
+  padding: 5px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+}
+
 #chat-container {
   width: 100%;
   max-width: 500px;
