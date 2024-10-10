@@ -16,37 +16,45 @@
   </header>
 
   <main>
-    <section id="channels-section">
+    <section id="posts-section">
+      <div id="post-container">
+        <textarea id="post-input" placeholder="Write your post here..."></textarea>
+        <input type="file" id="post-file-input" multiple /> <!-- Поле для выбора файлов -->
+        <button id="publish-post">Publish</button>
+      </div>
+      <div id="posts-container"></div> <!-- Секция, где будут отображаться посты -->
+    </section>
+
+    <div id="bottom-menu">
+      <button id="open-chats">Чаты</button>
+      <button id="open-channels">Каналы</button>
+    </div>
+
+    <div id="chat-container" style="display: none;">
+      <div id="chat-box"></div>
+
+      <div id="message-input-container">
+        <input type="text" id="chat-input" placeholder="Type a message...">
+        <input type="file" id="file-input" multiple accept="image/*,audio/*,video/*,.pdf,.doc,.docx,.txt">
+        <button id="send-message">Send</button>
+      </div>
+      <button id="back-to-posts">Назад</button>
+    </div>
+
+    <div id="channels-container" style="display: none;">
       <h2>Channels</h2>
       <ul id="channels-list"></ul>
       <input type="text" id="new-channel-name" placeholder="Channel Name">
       <input type="file" id="new-channel-avatar" accept="image/*">
       <button id="add-channel">Add Channel</button>
-    </section>
-
-    <div id="chat-container">
-  <div id="chat-box"></div>
-
-  <div id="message-input-container">
-    <input type="text" id="chat-input" placeholder="Type a message...">
-    <input type="file" id="file-input" multiple accept="image/*,audio/*,video/*,.pdf,.doc,.docx,.txt">
-    <button id="send-message">Send</button>
-  </div>
-</div>
-
-    <div id="post-container">
-  <textarea id="post-input" placeholder="Write your post here..."></textarea>
-  <input type="file" id="post-file-input" multiple /> <!-- Поле для выбора файлов -->
-  <button id="publish-post">Publish</button>
-</div>
-
-<div id="posts-section"></div> <!-- Секция, где будут отображаться посты -->
+      <button id="back-to-posts-channels">Назад</button>
+    </div>
 
     <div id="voice-container">
       <button id="record-button">Record</button>
       <button id="stop-button">Stop</button>
     </div>
-    
+
     <div id="voice-message-container">
       <button id="record-voice">🎤 Record Voice Message</button>
       <div id="voice-messages-list"></div>
@@ -54,23 +62,23 @@
   </main>
 
   <!-- В профиль -->
-<aside id="profile-menu">
+  <aside id="profile-menu">
     <button id="back-profile">Назад</button>
     <h2>Edit Profile</h2>
     <input type="text" id="edit-name" placeholder="Your name">
     <input type="text" id="edit-nickname" placeholder="Your nickname (@nickname)">
     <input type="file" id="avatar-upload" accept="image/*">
     <button id="save-profile">Save</button>
-</aside>
+  </aside>
 
-<!-- В настройки -->
-<aside id="settings-menu">
+  <!-- В настройки -->
+  <aside id="settings-menu">
     <button id="back-settings">Назад</button>
     <h2>Settings</h2>
     <button id="toggle-theme">Toggle Theme</button>
     <button id="clear-chat">Clear Chat</button>
     <button id="logout">Log out</button>
-</aside>
+  </aside>
 
   <script src="js/auth.js"></script>
   <script src="js/profile.js"></script>
@@ -81,5 +89,6 @@
   <script src="js/voice.js"></script>
   <script src="js/app.js"></script>
   <script src="js/voiceMessages.js"></script>
+  <script src="js/main.js"></script> <!-- Новый файл для управления состоянием главного экрана -->
 </body>
 </html>
