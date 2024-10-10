@@ -45,6 +45,40 @@ header {
   cursor: pointer;
 }
 
+#profile-container {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 20px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#profile-header {
+  margin-bottom: 15px;
+}
+
+#username {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+#edit-profile {
+  padding: 10px;
+  background-color: #0078D7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#profile-info p {
+  margin: 5px 0;
+}
+
+#posts-section,
 #channels-section,
 #chat-container,
 #post-container,
@@ -171,5 +205,9 @@ aside.active {
   .image-gallery img {
     width: 80px;
     height: 80px;
+  }
+
+  #profile-container {
+    padding: 10px;
   }
 }
