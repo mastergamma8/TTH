@@ -30,6 +30,12 @@ header {
   cursor: pointer;
 }
 
+#back-profile, #back-settings {
+  margin-bottom: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
 #settings-icon {
   position: absolute;
   top: 10px;
