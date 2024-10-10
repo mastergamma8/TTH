@@ -1,5 +1,7 @@
-document.getElementById('darkModeToggle').onclick = function() {
-    document.body.classList.toggle('dark-mode');
-};
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleThemeButton = document.getElementById('toggle-theme');
 
-// Можно добавить стили для темной темы в CSS
+  toggleThemeButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+  });
+});
