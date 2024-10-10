@@ -1,83 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TTH Messenger</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .status {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: green; /* Цвет статуса */
+      margin-right: 5px;
+    }
+  </style>
 </head>
 <body>
   <header>
     <div id="profile-pic-container">
-      <img id="profile-pic" src="images/default-avatar.png" alt="Profile Picture">
+      <img id="profile-pic" src="images/default-avatar.png" alt="Аватарка пользователя">
     </div>
     <h1>TTH Messenger</h1>
-    <div id="settings-icon">&#9881;</div>
+    <div id="settings-icon" aria-label="Настройки">&#9881;</div>
   </header>
 
   <main>
+    <div id="profile-container">
+      <div id="profile-header">
+        <img id="profile-pic" src="images/default-avatar.png" alt="Аватарка пользователя">
+        <h2 id="username">Имя Пользователя</h2>
+        <button id="edit-profile">Редактировать профиль</button>
+      </div>
+      <div id="profile-info">
+        <p><strong>Никнейм:</strong> @nickname</p>
+        <p><strong>Статус:</strong> <span class="status online"></span> В сети</p>
+        <p><strong>О себе:</strong> Ваше описание здесь</p>
+      </div>
+      <button id="logout">Выйти</button>
+    </div>
+
     <section id="posts-section">
       <div id="post-container">
-        <textarea id="post-input" placeholder="Write your post here..."></textarea>
-        <input type="file" id="post-file-input" multiple /> <!-- Поле для выбора файлов -->
+        <textarea id="post-input" placeholder="Напишите свой пост здесь..." aria-label="Поле для поста"></textarea>
+        <input type="file" id="post-file-input" multiple aria-label="Прикрепить файлы"/> <!-- Поле для выбора файлов -->
         <button id="publish-post">Опубликовать</button>
       </div>
-      <div id="posts-container"></div> <!-- Секция, где будут отображаться посты -->
+      <div id="posts-container" aria-live="polite"></div> <!-- Секция, где будут отображаться посты -->
     </section>
 
     <div id="bottom-menu">
-      <button id="open-chats">Чаты</button>
-      <button id="open-channels">Каналы</button>
+      <button id="open-chats" aria-label="Открыть чаты">Чаты</button>
+      <button id="open-channels" aria-label="Открыть каналы">Каналы</button>
     </div>
 
-    <div id="chat-container" style="display: none;">
-      <div id="chat-box"></div>
+    <div id="chat-container" style="display: none;" aria-hidden="true">
+      <div id="chat-box" aria-live="polite"></div>
 
       <div id="message-input-container">
-        <input type="text" id="chat-input" placeholder="Введите сообщение...">
-        <input type="file" id="file-input" multiple accept="image/*,audio/*,video/*,.pdf,.doc,.docx,.txt">
+        <input type="text" id="chat-input" placeholder="Напишите сообщение..." aria-label="Поле для чата">
+        <input type="file" id="file-input" multiple accept="image/*,audio/*,video/*,.pdf,.doc,.docx,.txt" aria-label="Прикрепить файлы">
         <button id="send-message">Отправить</button>
       </div>
       <button id="back-to-posts">Назад</button>
     </div>
 
-    <div id="channels-container" style="display: none;">
+    <div id="channels-container" style="display: none;" aria-hidden="true">
       <h2>Каналы</h2>
       <ul id="channels-list"></ul>
-      <input type="text" id="new-channel-name" placeholder="Имя канала">
-      <input type="file" id="new-channel-avatar" accept="image/*">
+      <input type="text" id="new-channel-name" placeholder="Имя канала" aria-label="Имя нового канала">
+      <input type="file" id="new-channel-avatar" accept="image/*" aria-label="Аватар канала">
       <button id="add-channel">Добавить канал</button>
       <button id="back-to-posts-channels">Назад</button>
     </div>
 
     <div id="voice-container">
-      <button id="record-button">Записать</button>
-      <button id="stop-button">Стоп</button>
+      <button id="record-button" aria-label="Записать голосовое сообщение">Записать</button>
+      <button id="stop-button" aria-label="Остановить запись">Стоп</button>
     </div>
 
     <div id="voice-message-container">
-      <button id="record-voice">🎤 Записать голосовое сообщение</button>
+      <button id="record-voice" aria-label="Записать голосовое сообщение">🎤 Записать голосовое сообщение</button>
       <div id="voice-messages-list"></div>
     </div>
   </main>
 
   <!-- В профиль -->
-  <aside id="profile-menu">
-    <button id="back-profile">Назад</button>
-    <h2>Редактировать профиль</h2>
-    <input type="text" id="edit-name" placeholder="Ваше имя">
-    <input type="text" id="edit-nickname" placeholder="Ваш никнейм (@nickname)">
-    <input type="file" id="avatar-upload" accept="image/*">
+  <aside id="profile-menu" role="dialog" aria-labelledby="profile-menu-title">
+    <button id="back-profile" aria-label="Назад к главному">Назад</button>
+    <h2 id="profile-menu-title">Редактирование профиля</h2>
+    <input type="text" id="edit-name" placeholder="Ваше имя" aria-label="Редактировать имя">
+    <input type="text" id="edit-nickname" placeholder="Ваш никнейм (@nickname)" aria-label="Редактировать никнейм">
+    <input type="file" id="avatar-upload" accept="image/*" aria-label="Загрузить аватарку">
     <button id="save-profile">Сохранить</button>
   </aside>
 
   <!-- В настройки -->
-  <aside id="settings-menu">
-    <button id="back-settings">Назад</button>
-    <h2>Настройки</h2>
-    <button id="toggle-theme">Сменить тему</button>
-    <button id="clear-chat">Очистить чат</button>
-    <button id="logout">Выйти</button>
+  <aside id="settings-menu" role="dialog" aria-labelledby="settings-menu-title">
+    <button id="back-settings" aria-label="Назад к главному">Назад</button>
+    <h2 id="settings-menu-title">Настройки</h2>
+    <button id="toggle-theme" aria-label="Переключить тему">Переключить тему</button>
+    <button id="clear-chat" aria-label="Очистить чат">Очистить чат</button>
+    <button id="logout" aria-label="Выйти">Выйти</button>
   </aside>
 
   <script src="js/auth.js"></script>
