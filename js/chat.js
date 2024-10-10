@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const chatBox = document.getElementById('chat-box');
   const chatInput = document.getElementById('chat-input');
   const sendMessageButton = document.getElementById('send-message');
-  const clearChatButton = document.getElementById('clear-chat');
   const fileInput = document.getElementById('file-input');
   const userNickname = "Твой Ник";
 
@@ -10,7 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const postInput = document.getElementById('post-input');
   const postFileInput = document.getElementById('post-file-input'); // Поле для файлов в постах
   const publishPostButton = document.getElementById('publish-post');
-  const postsSection = document.getElementById('posts-section'); // Секция постов
+  const postsSection = document.getElementById('posts-container'); // Секция постов
+  const clearChatButton = document.getElementById('clear-chat');
 
   sendMessageButton.addEventListener('click', () => {
     const message = chatInput.value.trim();
@@ -124,5 +124,34 @@ document.addEventListener('DOMContentLoaded', () => {
   clearChatButton.addEventListener('click', () => {
     chatBox.innerHTML = '';
     alert('Chat cleared.');
+  });
+  
+  // Дополнительные функции для переключения между постами и чатом
+  const openChatsButton = document.getElementById('open-chats');
+  const openChannelsButton = document.getElementById('open-channels');
+  const backToPostsButton = document.getElementById('back-to-posts');
+  const backToPostsChannelsButton = document.getElementById('back-to-posts-channels');
+  const channelsContainer = document.getElementById('channels-container');
+
+  openChatsButton.addEventListener('click', () => {
+    document.getElementById('chat-container').style.display = 'block';
+    document.getElementById('channels-container').style.display = 'none';
+    postsSection.style.display = 'none';
+  });
+
+  openChannelsButton.addEventListener('click', () => {
+    channelsContainer.style.display = 'block';
+    document.getElementById('chat-container').style.display = 'none';
+    postsSection.style.display = 'none';
+  });
+
+  backToPostsButton.addEventListener('click', () => {
+    document.getElementById('chat-container').style.display = 'none';
+    postsSection.style.display = 'block';
+  });
+
+  backToPostsChannelsButton.addEventListener('click', () => {
+    channelsContainer.style.display = 'none';
+    postsSection.style.display = 'block';
   });
 });
