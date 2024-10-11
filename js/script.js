@@ -1,6 +1,6 @@
 // Получаем модальное окно и элементы
 var modal = document.getElementById("profile-modal");
-var avatar = document.getElementById("avatar"); // Ваш ID для аватара
+var avatar = document.getElementById("profile-pic"); // ID для аватара
 var span = document.getElementsByClassName("close")[0];
 
 // Открытие модального окна при клике на аватарку
@@ -39,7 +39,7 @@ document.getElementById('banner-upload').addEventListener('change', changeProfil
 
 // Функция для смены аватара профиля
 function changeProfileAvatar(event) {
-  const avatarImg = document.getElementById('avatar-img'); // Ваш ID для изображения аватара
+  const avatarImg = document.getElementById('profile-pic'); // ID для изображения аватара
   const file = event.target.files[0];
   
   if (file) {
