@@ -14,6 +14,43 @@
       background-color: green; /* Цвет статуса */
       margin-right: 5px;
     }
+
+    /* Стили для шапки профиля */
+    #profile-header {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      height: 200px; /* Высота шапки */
+      margin-bottom: 50px; /* Отступ для аватарки */
+    }
+
+    #profile-banner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 8px 8px 0 0; /* Закругление углов вверху */
+    }
+
+    #profile-banner-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Обеспечивает, чтобы изображение полностью заполнило контейнер */
+    }
+
+    #profile-pic-container {
+      position: absolute;
+      bottom: -40px; /* Смещение аватарки вниз */
+      left: 20px; /* Отступ от левого края */
+    }
+
+    #profile-pic {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid white; /* Белая рамка вокруг аватарки */
+      object-fit: cover;
+    }
   </style>
 </head>
 <body>
@@ -28,7 +65,14 @@
   <main>
     <div id="profile-container">
       <div id="profile-header">
-        <img id="profile-pic" src="images/default-avatar.png" alt="Аватарка пользователя">
+        <!-- Шапка профиля -->
+        <div id="profile-banner">
+          <img id="profile-banner-img" src="images/default-banner.jpg" alt="Шапка профиля">
+        </div>
+        <!-- Аватарка и имя пользователя -->
+        <div id="profile-pic-container">
+          <img id="profile-pic" src="images/default-avatar.png" alt="Аватарка пользователя">
+        </div>
         <h2 id="username">Имя Пользователя</h2>
         <button id="edit-profile">Редактировать профиль</button>
       </div>
