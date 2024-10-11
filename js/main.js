@@ -15,7 +15,7 @@ function closeModal() {
 // Закрытие модального окна при клике вне его
 window.onclick = function (event) {
   const modal = document.getElementById("myModal");
-  if (event.target == modal) {
+  if (event.target === modal) {
     modal.style.display = "none";
   }
 };
@@ -23,9 +23,9 @@ window.onclick = function (event) {
 // Функция для отправки сообщения
 function sendMessage() {
   const messageInput = document.getElementById("chat-input");
-  const message = messageInput.value;
+  const message = messageInput.value.trim();
 
-  if (message.trim() !== "") {
+  if (message !== "") {
     const chatBox = document.getElementById("chat-box");
     const newMessage = document.createElement("div");
     newMessage.classList.add("message");
@@ -70,12 +70,27 @@ function toggleDarkTheme() {
   document.body.classList.toggle("dark-theme");
 }
 
+// Сохранение темы при переключении
+document.addEventListener('DOMContentLoaded', () => {
+  const currentTheme = localStorage.getItem('theme');
+  if (currentTheme === 'dark') {
+    document.body.classList.add('dark-theme');
+  }
+
+  document.getElementById("toggle-theme").addEventListener("click", () => {
+    toggleDarkTheme();
+
+    const theme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
+    localStorage.setItem('theme', theme);
+  });
+});
+
 // Добавление поста
 function publishPost() {
   const postInput = document.getElementById("post-input");
-  const postText = postInput.value;
+  const postText = postInput.value.trim();
 
-  if (postText.trim() !== "") {
+  if (postText !== "") {
     const postSection = document.getElementById("posts-section");
     const newPost = document.createElement("div");
     newPost.classList.add("post");
