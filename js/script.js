@@ -19,3 +19,37 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+// Функция для смены шапки профиля
+function changeProfileBanner(event) {
+  const bannerImg = document.getElementById('profile-banner-img');
+  const file = event.target.files[0];
+  
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      bannerImg.src = e.target.result;
+    }
+    reader.readAsDataURL(file);
+  }
+}
+
+// Добавим обработчик для загрузки изображения шапки
+document.getElementById('banner-upload').addEventListener('change', changeProfileBanner);
+
+// Функция для смены аватара профиля
+function changeProfileAvatar(event) {
+  const avatarImg = document.getElementById('avatar-img'); // Ваш ID для изображения аватара
+  const file = event.target.files[0];
+  
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      avatarImg.src = e.target.result;
+    }
+    reader.readAsDataURL(file);
+  }
+}
+
+// Добавим обработчик для загрузки аватара
+document.getElementById('avatar-upload').addEventListener('change', changeProfileAvatar);
