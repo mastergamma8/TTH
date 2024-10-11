@@ -4,21 +4,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const saveProfileButton = document.getElementById('save-profile');
   const avatarUpload = document.getElementById('avatar-upload');
 
+  // Открытие/закрытие меню профиля по клику на аватар
   profilePic.addEventListener('click', () => {
     profileMenu.classList.toggle('active');
   });
 
+  // Сохранение изменений профиля
   saveProfileButton.addEventListener('click', () => {
     const newName = document.getElementById('edit-name').value;
     const newNickname = document.getElementById('edit-nickname').value;
 
     if (newName) {
-      profilePic.src = avatarUpload.files.length > 0 ? URL.createObjectURL(avatarUpload.files[0]) : 'images/default-avatar.png';
+      // Если загружен новый аватар, то устанавливаем его
+      if (avatarUpload.files.length > 0) {
+        profilePic.src = URL.createObjectURL(avatarUpload.files[0]);
+      } else {
+        profilePic.src = 'images/default-avatar.png'; // Если нет, устанавливаем аватар по умолчанию
+      }
+
       alert(`Profile saved. Name: ${newName}, Nickname: ${newNickname}`);
     } else {
       alert('Please enter a name.');
     }
 
+    // Закрытие меню профиля
     profileMenu.classList.remove('active');
   });
 });
