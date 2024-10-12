@@ -1,37 +1,41 @@
-// Получите кнопки "Назад"
-const backProfileButton = document.getElementById('back-profile');
-const backSettingsButton = document.getElementById('back-settings');
+document.addEventListener('DOMContentLoaded', () => {
+  // Обработчик клика для открытия меню профиля
+  document.getElementById('profile-pic').addEventListener('click', function () {
+    const profileMenu = document.getElementById('profile-menu');
+    profileMenu.classList.toggle('active');
+  });
 
-// Получите элементы, которые нужно скрыть
-const profileMenu = document.getElementById('profile-menu');
-const settingsMenu = document.getElementById('settings-menu');
-const mainSection = document.querySelector('main'); // или ваш главный контейнер
+  // Обработчик клика для открытия меню настроек
+  document.getElementById('settings-icon').addEventListener('click', function () {
+    const settingsMenu = document.getElementById('settings-menu');
+    settingsMenu.classList.toggle('active');
+  });
 
-// Функция для показа главного экрана
-function showMainScreen() {
-    profileMenu.style.display = 'none';
-    settingsMenu.style.display = 'none';
-    mainSection.style.display = 'block'; // Покажите главный экран
-}
+  // Закрытие меню профиля при нажатии кнопки "Назад"
+  document.getElementById('back-profile').addEventListener('click', function () {
+    const profileMenu = document.getElementById('profile-menu');
+    profileMenu.classList.remove('active');
+  });
 
-// Обработчики событий для кнопок "Назад"
-backProfileButton.addEventListener('click', showMainScreen);
-backSettingsButton.addEventListener('click', showMainScreen);
+  // Закрытие меню настроек при нажатии кнопки "Назад"
+  document.getElementById('back-settings').addEventListener('click', function () {
+    const settingsMenu = document.getElementById('settings-menu');
+    settingsMenu.classList.remove('active');
+  });
 
-// Функция для открытия профиля
-function openProfile() {
-    mainSection.style.display = 'none'; // Скрыть главный экран
-    profileMenu.style.display = 'block'; // Показать меню профиля
-}
+  // Сохранение изменений профиля
+  document.getElementById('save-profile').addEventListener('click', () => {
+    const newName = document.getElementById('edit-name').value;
+    const newNickname = document.getElementById('edit-nickname').value;
 
-// Функция для открытия настроек
-function openSettings() {
-    mainSection.style.display = 'none'; // Скрыть главный экран
-    settingsMenu.style.display = 'block'; // Показать меню настроек
-}
+    if (newName) {
+      document.getElementById('username').textContent = newName;
+      alert(`Профиль сохранен. Имя: ${newName}, Никнейм: ${newNickname}`);
+    } else {
+      alert('Пожалуйста, введите имя.');
+    }
 
-// Пример, как можно добавить обработку кнопок
-document.getElementById('settings-icon').addEventListener('click', openSettings);
-document.getElementById('profile-pic').addEventListener('click', openProfile);
-
-// Добавьте дополнительные функции для работы с чатами, постами и каналами здесь
+    const profileMenu = document.getElementById('profile-menu');
+    profileMenu.classList.remove('active');
+  });
+});
