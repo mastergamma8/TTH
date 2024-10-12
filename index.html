@@ -62,6 +62,21 @@
       margin-top: 20px;
       text-align: center;
     }
+
+    /* Стили для кнопки информации о TTH Premium */
+    #premium-info {
+      margin-top: 10px;
+      background-color: #0078D7;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #premium-info:hover {
+      background-color: #0056b3;
+    }
   </style>
 </head>
 <body>
@@ -91,8 +106,9 @@
     <!-- Секция TTH Premium -->
     <div id="premium-container">
       <h2>TTH Premium</h2>
-      <button id="subscribe-button">Подписаться на TTH Premium</button>
-      <p>Получите доступ к эксклюзивным стикерам, дополнительному хранилищу и кастомизации интерфейса!</p>
+      <button id="premium-button">Активировать TTH Premium</button>
+      <p id="premium-status">TTH Premium неактивен.</p>
+      <button id="premium-info">Информация о TTH Premium</button>
     </div>
 
     <!-- Модальное окно профиля -->
