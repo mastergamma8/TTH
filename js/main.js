@@ -1,26 +1,26 @@
 // main.js
 
-// Открытие модального окна
-function openModal() {
-  const modal = document.getElementById("myModal");
+// Открытие модального окна профиля
+function openProfileModal() {
+  const modal = document.getElementById("profile-modal");
   modal.style.display = "block";
 }
 
-// Закрытие модального окна
-function closeModal() {
-  const modal = document.getElementById("myModal");
+// Закрытие модального окна профиля
+function closeProfileModal() {
+  const modal = document.getElementById("profile-modal");
   modal.style.display = "none";
 }
 
 // Закрытие модального окна при клике вне его
 window.onclick = function (event) {
-  const modal = document.getElementById("myModal");
+  const modal = document.getElementById("profile-modal");
   if (event.target === modal) {
-    modal.style.display = "none";
+    closeProfileModal();
   }
 };
 
-// Функция для отправки сообщения
+// Функция для отправки сообщения в чате
 function sendMessage() {
   const messageInput = document.getElementById("chat-input");
   const message = messageInput.value.trim();
@@ -47,21 +47,15 @@ document.getElementById("chat-input").addEventListener("keypress", function (e) 
   }
 });
 
-// Открытие профиля
-document.getElementById("profile-pic").addEventListener("click", function () {
-  const profileContainer = document.getElementById("profile-container");
-  profileContainer.style.display = "block";
-});
+// Открытие меню профиля при клике на аватарку
+document.getElementById("profile-pic").addEventListener("click", openProfileModal);
 
 // Закрытие профиля
-document.getElementById("back-profile").addEventListener("click", function () {
-  const profileContainer = document.getElementById("profile-container");
-  profileContainer.style.display = "none";
-});
+document.getElementById("back-profile").addEventListener("click", closeProfileModal);
 
 // Открытие меню настроек
 document.getElementById("settings-icon").addEventListener("click", function () {
-  const settingsMenu = document.querySelector("aside");
+  const settingsMenu = document.querySelector("aside#settings-menu");
   settingsMenu.classList.toggle("active");
 });
 
@@ -91,7 +85,7 @@ function publishPost() {
   const postText = postInput.value.trim();
 
   if (postText !== "") {
-    const postSection = document.getElementById("posts-section");
+    const postSection = document.getElementById("posts-container");
     const newPost = document.createElement("div");
     newPost.classList.add("post");
     newPost.textContent = postText;
