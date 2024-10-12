@@ -5,6 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TTH Messenger</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .status {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: green; /* Цвет статуса */
+      margin-right: 5px;
+    }
+
+    /* Стили для шапки профиля */
+    #profile-header {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      height: 200px; /* Высота шапки */
+      margin-bottom: 50px; /* Отступ для аватарки */
+    }
+
+    #profile-banner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 8px 8px 0 0; /* Закругление углов вверху */
+    }
+
+    #profile-banner-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Обеспечивает, чтобы изображение полностью заполнило контейнер */
+    }
+
+    #profile-pic-container {
+      position: absolute;
+      bottom: -40px; /* Смещение аватарки вниз */
+      left: 20px; /* Отступ от левого края */
+    }
+
+    #profile-pic {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid white; /* Белая рамка вокруг аватарки */
+      object-fit: cover;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -35,11 +82,11 @@
       <div class="modal-content">
         <span class="close">&times;</span>
         <h1>Имя Пользователя</h1>
-        <p>Никнейм: @nickname</p>
+        <p>Никнейм: <span id="nickname-display">@nickname</span></p>
         <p>Статус: В сети</p>
         <p>О себе: Ваше описание здесь</p>
-        <button>Редактировать профиль</button>
-        <button>Выйти</button>
+        <button id="edit-profile">Редактировать профиль</button>
+        <button id="logout">Выйти</button>
       </div>
     </div>
 
@@ -49,7 +96,7 @@
         <input type="file" id="post-file-input" multiple aria-label="Прикрепить файлы"/>
         <button id="publish-post">Опубликовать</button>
       </div>
-      <div id="posts-container" aria-live="polite"></div>
+      <div id="posts-container" aria-live="polite"></div> <!-- Секция, где будут отображаться посты -->
     </section>
 
     <div id="bottom-menu">
