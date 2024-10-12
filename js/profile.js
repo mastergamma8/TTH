@@ -3,31 +3,40 @@ document.addEventListener('DOMContentLoaded', () => {
   const profileMenu = document.getElementById('profile-menu');
   const saveProfileButton = document.getElementById('save-profile');
   const avatarUpload = document.getElementById('avatar-upload');
+  const editName = document.getElementById('edit-name');
+  const editNickname = document.getElementById('edit-nickname');
 
-  // Открытие меню профиля при клике на аватар
+  // Открытие меню профиля при нажатии на аватар
   profilePic.addEventListener('click', () => {
     profileMenu.classList.toggle('active');
   });
 
-  // Сохранение изменений профиля
+  // Сохранение профиля
   saveProfileButton.addEventListener('click', () => {
-    const newName = document.getElementById('edit-name').value;
-    const newNickname = document.getElementById('edit-nickname').value;
-
-    if (newName) {
-      // Замена аватара при загрузке нового
+    const newName = editName.value.trim();
+    const newNickname = editNickname.value.trim();
+    
+    if (newName || newNickname) {
+      // Изменяем аватар
       if (avatarUpload.files.length > 0) {
         profilePic.src = URL.createObjectURL(avatarUpload.files[0]);
+      } else {
+        profilePic.src = 'images/default-avatar.png'; // Если аватар не выбран, используем стандартный
+      }
+      
+      // Обновляем имя и никнейм
+      if (newName) {
+        document.getElementById('username').textContent = newName;
+      }
+      if (newNickname) {
+        document.getElementById('nickname-display').textContent = newNickname; // Обновляем никнейм на странице
       }
 
-      // Отображение новых данных
-      document.getElementById('username').textContent = newName;
-
-      alert(`Профиль обновлен: Имя - ${newName}, Никнейм - ${newNickname}`);
+      alert(`Профиль сохранён. Имя: ${newName}, Никнейм: ${newNickname}`);
     } else {
-      alert('Пожалуйста, введите имя.');
+      alert('Пожалуйста, введите имя или никнейм.');
     }
 
-    profileMenu.classList.remove('active');
+    profileMenu.classList.remove('active'); // Закрываем меню профиля
   });
 });
