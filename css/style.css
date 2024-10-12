@@ -1,6 +1,6 @@
 /* Стили для модального окна */
 .modal {
-  display: none;
+  display: none; /* Скрываем по умолчанию */
   position: fixed;
   z-index: 1;
   left: 0;
@@ -174,6 +174,32 @@ header {
   cursor: pointer;
 }
 
+/* Добавлены стили для TTH Premium */
+#premium-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e0ffe0;
+  border: 1px solid #88cc88;
+  border-radius: 5px;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+#premium-container h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+#premium-container button {
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 /* Добавлены стили для отображения альбомов изображений */
 .image-gallery {
   display: flex;
@@ -257,6 +283,11 @@ aside.active {
   }
 
   #profile-container {
+    padding: 10px;
+  }
+
+  #premium-container {
+    width: 100%;
     padding: 10px;
   }
 }
