@@ -1,8 +1,8 @@
 /* Стили для модального окна */
 .modal {
-  display: none; /* Скрываем по умолчанию */
+  display: none;
   position: fixed;
-  z-index: 1000;
+  z-index: 1;
   left: 0;
   top: 0;
   width: 100%;
@@ -12,90 +12,83 @@
 
 .modal-content {
   background-color: #fff;
-  margin: 10% auto;
+  margin: 15% auto;
   padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
   border-radius: 10px;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .close {
-  color: #888;
+  color: #aaa;
   float: right;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
-  cursor: pointer;
 }
 
 .close:hover,
 .close:focus {
-  color: #000;
+  color: black;
   text-decoration: none;
+  cursor: pointer;
 }
 
 /* Основные стили */
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f5f7fa;
-  color: #333;
+  background-color: #f0f0f0;
 }
 
 header {
   width: 100%;
-  padding: 15px;
-  background-color: #0066cc;
+  padding: 10px;
+  background-color: #0078D7;
   color: white;
   text-align: center;
-  font-size: 1.5em;
   position: relative;
 }
 
 #profile-pic-container {
   position: absolute;
-  top: 15px;
-  left: 15px;
+  top: 10px;
+  left: 10px;
 }
 
 #profile-pic {
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   cursor: pointer;
 }
 
 #back-profile,
 #back-settings {
-  margin-bottom: 15px;
-  padding: 12px;
-  background-color: #e0e0e0;
-  border: none;
-  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 10px;
   cursor: pointer;
 }
 
 #settings-icon {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 26px;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
   cursor: pointer;
-  color: white;
 }
 
 #profile-container {
   width: 100%;
   max-width: 500px;
   margin-top: 20px;
-  padding: 20px;
+  padding: 15px;
   background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
@@ -105,31 +98,22 @@ header {
 
 #username {
   font-size: 24px;
-  margin: 15px 0;
-  font-weight: bold;
+  margin: 10px 0;
 }
 
 #edit-profile {
-  padding: 12px;
-  background-color: #0066cc;
+  padding: 10px;
+  background-color: #0078D7;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-#edit-profile:hover {
-  background-color: #005bb5;
 }
 
 #profile-info p {
-  margin: 8px 0;
-  font-size: 14px;
-  color: #555;
+  margin: 5px 0;
 }
 
-/* Раздел постов и каналов */
 #posts-section,
 #channels-section,
 #chat-container,
@@ -142,103 +126,85 @@ header {
 }
 
 .channel-avatar {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  margin-right: 10px;
+  margin-right: 8px;
 }
 
 .channel-item {
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
-  background-color: #f9f9f9;
-  padding: 10px;
-  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
 .channel-post {
-  margin-left: 50px;
-  margin-top: 8px;
-  padding: 10px;
-  background-color: #ececec;
-  border-radius: 8px;
+  margin-left: 40px;
+  margin-top: 5px;
+  padding: 5px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
 }
 
 #chat-box {
   width: 100%;
-  height: 350px;
+  height: 400px;
   border: 1px solid #ccc;
-  padding: 15px;
+  padding: 10px;
   overflow-y: scroll;
   background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
 }
 
 #chat-input,
 #post-input {
-  width: 85%;
-  padding: 12px;
+  width: 80%;
+  padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 6px;
-  margin-top: 10px;
+  border-radius: 5px;
 }
 
 #send-message,
 #publish-post,
 #add-channel {
-  padding: 12px;
-  background-color: #0066cc;
+  padding: 10px;
+  background-color: #0078D7;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px;
-  transition: background-color 0.3s;
 }
 
-#send-message:hover,
-#publish-post:hover,
-#add-channel:hover {
-  background-color: #005bb5;
-}
-
-/* Стили для галереи изображений */
+/* Добавлены стили для отображения альбомов изображений */
 .image-gallery {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 .image-gallery img {
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
-  margin: 8px;
-  border-radius: 6px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 5px;
+  border-radius: 5px;
 }
 
 .file-link {
-  margin-top: 12px;
+  margin-top: 10px;
   text-decoration: none;
-  color: #0066cc;
+  color: blue;
   word-break: break-all;
 }
 
-/* Стили для голосовых сообщений */
+/* Голосовые сообщения */
 #voice-messages-list {
-  margin-top: 15px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
 }
 
 .voice-message {
-  margin: 10px 0;
-  padding: 10px;
-  background-color: #ececec;
-  border-radius: 8px;
+  margin: 5px 0;
 }
 
 aside {
@@ -250,7 +216,6 @@ aside {
   background-color: #f0f0f0;
   padding: 20px;
   display: none;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 aside.active {
@@ -283,20 +248,15 @@ aside.active {
   #publish-post,
   #add-channel {
     width: 100%;
-    margin-top: 8px;
+    margin-top: 5px;
   }
 
   .image-gallery img {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
   }
 
   #profile-container {
-    padding: 15px;
-  }
-
-  header {
-    font-size: 1.2em;
     padding: 10px;
   }
 }
