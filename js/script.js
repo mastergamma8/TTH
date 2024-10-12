@@ -1,6 +1,6 @@
 // Получаем модальное окно и элементы
 var modal = document.getElementById("profile-modal");
-var avatar = document.getElementById("profile-pic"); // Ваш ID для аватара
+var avatar = document.getElementById("profile-pic"); // ID для аватара
 var span = document.getElementsByClassName("close")[0];
 
 // Открытие модального окна при клике на аватарку
@@ -39,7 +39,7 @@ document.getElementById('banner-upload').addEventListener('change', changeProfil
 
 // Функция для смены аватара профиля
 function changeProfileAvatar(event) {
-  const avatarImg = document.getElementById('profile-pic'); // Ваш ID для изображения аватара
+  const avatarImg = document.getElementById('profile-pic'); // ID для изображения аватара
   const file = event.target.files[0];
   
   if (file) {
@@ -109,4 +109,16 @@ document.getElementById("settings-icon").addEventListener("click", function () {
 // Переключение темной темы
 document.getElementById("toggle-theme").addEventListener("click", function () {
   document.body.classList.toggle("dark-theme");
+});
+
+// Переменные для TTH Premium
+const premiumButton = document.getElementById('premium-button');
+const premiumStatus = document.getElementById('premium-status');
+let isPremium = false; // Начальное значение для статуса TTH Premium
+
+// Обработка кнопки для активации TTH Premium
+premiumButton.addEventListener('click', () => {
+  isPremium = !isPremium; // Переключаем статус премиума
+  premiumStatus.textContent = isPremium ? "TTH Premium активирован!" : "TTH Premium неактивен.";
+  premiumStatus.style.color = isPremium ? "green" : "red";
 });
