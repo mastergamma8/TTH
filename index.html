@@ -51,6 +51,17 @@
       border: 3px solid white; /* Белая рамка вокруг аватарки */
       object-fit: cover;
     }
+
+    /* Стили для TTH Premium */
+    #premium-container {
+      display: none;
+      padding: 15px;
+      background-color: #e0ffe0;
+      border: 1px solid #88cc88;
+      border-radius: 5px;
+      margin-top: 20px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -75,6 +86,13 @@
         </div>
         <h2 id="username">Имя Пользователя</h2>
       </div>
+    </div>
+
+    <!-- Секция TTH Premium -->
+    <div id="premium-container">
+      <h2>TTH Premium</h2>
+      <button id="subscribe-button">Подписаться на TTH Premium</button>
+      <p>Получите доступ к эксклюзивным стикерам, дополнительному хранилищу и кастомизации интерфейса!</p>
     </div>
 
     <!-- Модальное окно профиля -->
@@ -108,7 +126,6 @@
 
       <div id="message-input-container">
         <input type="text" id="chat-input" placeholder="Напишите сообщение..." aria-label="Поле для чата">
-        <input type="file" id="file-input" multiple accept="image/*,audio/*,video/*,.pdf,.doc,.docx,.txt" aria-label="Прикрепить файлы">
         <button id="send-message">Отправить</button>
       </div>
       <button id="back-to-posts">Назад</button>
@@ -118,7 +135,6 @@
       <h2>Каналы</h2>
       <ul id="channels-list"></ul>
       <input type="text" id="new-channel-name" placeholder="Имя канала" aria-label="Имя нового канала">
-      <input type="file" id="new-channel-avatar" accept="image/*" aria-label="Аватар канала">
       <button id="add-channel">Добавить канал</button>
       <button id="back-to-posts-channels">Назад</button>
     </div>
@@ -162,6 +178,7 @@
   <script src="js/app.js"></script>
   <script src="js/voiceMessages.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/premium.js"></script> <!-- Подключаем новый файл для логики TTH Premium -->
   <script src="script.js"></script>
 </body>
 </html>
