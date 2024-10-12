@@ -15,20 +15,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Создаем аватар канала
       const avatar = document.createElement('img');
-      const reader = new FileReader();
-
-      reader.onload = function(e) {
-        avatar.src = e.target.result;
-        avatar.alt = `${channelName} Avatar`;
-        avatar.classList.add('channel-avatar');
-        channel.appendChild(avatar);
-      };
+      avatar.classList.add('channel-avatar');
 
       if (channelAvatar) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          avatar.src = e.target.result;
+        };
         reader.readAsDataURL(channelAvatar);
       } else {
         avatar.src = 'images/default-channel-avatar.png'; // аватар по умолчанию
       }
+      channel.appendChild(avatar);
 
       // Создаем имя канала
       const name = document.createElement('span');
@@ -56,6 +54,17 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           alert('Пожалуйста, введите сообщение.');
         }
+      });
+
+      // Добавляем кнопку для удаления канала
+      const deleteChannelButton = document.createElement('button');
+      deleteChannelButton.textContent = 'Удалить канал';
+      deleteChannelButton.classList.add('delete-channel');
+      channel.appendChild(deleteChannelButton);
+
+      // Функциональность удаления канала
+      deleteChannelButton.addEventListener('click', () => {
+        channelsList.removeChild(channel);
       });
 
       channelsList.appendChild(channel);
