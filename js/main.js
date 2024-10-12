@@ -55,8 +55,14 @@ document.getElementById("back-profile").addEventListener("click", closeProfileMo
 
 // Открытие меню настроек
 document.getElementById("settings-icon").addEventListener("click", function () {
-  const settingsMenu = document.querySelector("aside#settings-menu");
+  const settingsMenu = document.getElementById("settings-menu");
   settingsMenu.classList.toggle("active");
+});
+
+// Закрытие меню настроек
+document.getElementById("back-settings").addEventListener("click", function () {
+  const settingsMenu = document.getElementById("settings-menu");
+  settingsMenu.classList.remove("active");
 });
 
 // Обработчик темной темы
@@ -92,6 +98,8 @@ function publishPost() {
     postSection.appendChild(newPost);
 
     postInput.value = ""; // Очистить поле ввода
+  } else {
+    alert("Пожалуйста, введите текст поста.");
   }
 }
 
