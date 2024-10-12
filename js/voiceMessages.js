@@ -1,24 +1,41 @@
-import { startRecording, stopRecording } from './voice.js';
+document.addEventListener('DOMContentLoaded', () => {
+  const voiceMessageContainer = document.getElementById('voice-message-container');
+  const voiceMessagesList = document.getElementById('voice-messages-list');
+  
+  // Добавить голосовое сообщение в список
+  function addVoiceMessage(audioURL) {
+    const audioElement = document.createElement('audio');
+    audioElement.src = audioURL;
+    audioElement.controls = true; // Показывает элементы управления
+    voiceMessagesList.appendChild(audioElement);
+  }
 
-const toggleRecordVoiceButton = document.getElementById('toggle-record-voice');
-let recording = false;
+  // Добавляем обработчик для кнопки записи
+  document.getElementById('record-voice').addEventListener('click', () => {
+    // Запуск процесса записи
+    recordVoice();
+  });
 
-toggleRecordVoiceButton.addEventListener('click', async () => {
-    try {
-        if (!recording) {
-            console.log('Requesting audio stream...');
-            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-            console.log('Audio stream obtained.');
-            await startRecording(stream);
-            recording = true;
-            toggleRecordVoiceButton.innerText = '⏹ Stop Recording';
-        } else {
-            stopRecording();
-            recording = false;
-            toggleRecordVoiceButton.innerText = '🎤 Start Recording';
-        }
-    } catch (error) {
-        console.error('Error accessing audio stream:', error);
-        alert('Could not access microphone. Please check permissions.');
-    }
+  // Функция для записи голосового сообщения
+  async function recordVoice() {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    const mediaRecorder = new MediaRecorder(stream);
+    const audioChunks = [];
+
+    mediaRecorder.start();
+
+    mediaRecorder.ondataavailable = (event) => {
+      audioChunks.push(event.data);
+    };
+
+    mediaRecorder.onstop = () => {
+      const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
+      const audioURL = URL.createObjectURL(audioBlob);
+      addVoiceMessage(audioURL);
+    };
+
+    document.getElementById('stop-button').onclick = () => {
+      mediaRecorder.stop();
+    };
+  }
 });
