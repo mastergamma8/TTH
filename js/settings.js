@@ -1,20 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
   const toggleThemeButton = document.getElementById('toggle-theme');
 
-  // Сохранение выбранной темы в локальное хранилище
-  const currentTheme = localStorage.getItem('theme');
-  if (currentTheme === 'dark') {
-    document.body.classList.add('dark-theme');
-  }
-
+  // Переключение темной темы
   toggleThemeButton.addEventListener('click', () => {
     document.body.classList.toggle('dark-theme');
+    alert('Тема изменена!');
+  });
 
-    // Обновление темы в локальном хранилище
-    if (document.body.classList.contains('dark-theme')) {
-      localStorage.setItem('theme', 'dark');
-    } else {
-      localStorage.setItem('theme', 'light');
-    }
+  const clearChatButton = document.getElementById('clear-chat');
+
+  // Очистка чата
+  clearChatButton.addEventListener('click', () => {
+    const chatBox = document.getElementById('chat-box');
+    chatBox.innerHTML = '';
+    alert('Чат очищен.');
+  });
+
+  const logoutButton = document.getElementById('logout');
+
+  // Логаут пользователя
+  logoutButton.addEventListener('click', () => {
+    alert('Вы вышли из аккаунта.');
+    window.location.href = 'login.html'; // Здесь можно указать ссылку на страницу входа
   });
 });
