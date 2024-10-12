@@ -6,14 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const channelAvatarInput = document.getElementById('new-channel-avatar');
 
   addChannelButton.addEventListener('click', () => {
-    const channelName = channelNameInput.value;
+    const channelName = channelNameInput.value.trim();
     const channelAvatar = channelAvatarInput.files[0];
 
     if (channelName) {
       const channel = document.createElement('li');
       channel.classList.add('channel-item');
 
-      // Create channel avatar
+      // Создаем аватар канала
       const avatar = document.createElement('img');
       const reader = new FileReader();
 
@@ -27,32 +27,34 @@ document.addEventListener('DOMContentLoaded', () => {
       if (channelAvatar) {
         reader.readAsDataURL(channelAvatar);
       } else {
-        avatar.src = 'images/default-channel-avatar.png'; // default avatar
+        avatar.src = 'images/default-channel-avatar.png'; // аватар по умолчанию
       }
 
-      // Create channel name
+      // Создаем имя канала
       const name = document.createElement('span');
       name.textContent = channelName;
       channel.appendChild(name);
 
-      // Create post input for channel
+      // Создаем поле для ввода поста
       const postInput = document.createElement('textarea');
-      postInput.placeholder = 'Write a message to this channel...';
+      postInput.placeholder = 'Напишите сообщение для этого канала...';
       channel.appendChild(postInput);
 
       const sendPostButton = document.createElement('button');
-      sendPostButton.textContent = 'Send Post';
+      sendPostButton.textContent = 'Отправить пост';
       channel.appendChild(sendPostButton);
 
-      // Add post functionality
+      // Функциональность отправки поста
       sendPostButton.addEventListener('click', () => {
-        const postContent = postInput.value;
+        const postContent = postInput.value.trim();
         if (postContent) {
           const post = document.createElement('div');
           post.classList.add('channel-post');
           post.textContent = postContent;
           channel.appendChild(post);
           postInput.value = '';
+        } else {
+          alert('Пожалуйста, введите сообщение.');
         }
       });
 
@@ -60,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
       channelNameInput.value = '';
       channelAvatarInput.value = '';
     } else {
-      alert('Please enter a channel name.');
+      alert('Пожалуйста, введите имя канала.');
     }
   });
 });
